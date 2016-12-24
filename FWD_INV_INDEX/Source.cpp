@@ -23,7 +23,7 @@ int main() {
 		string token;
 		token = getToken(webpage);
 		Word * word = new Word(token);
-		//cout << token << " ";
+		cout << token << " ";
 
 		//Insert into invindex. STILL WORKING ON THIS ONE
 		{
@@ -57,11 +57,11 @@ int main() {
 	string b = "";
 	if (compareStrings("test", "TEst")) cout << "TEST";*/
 
-	map<int, int> x;
-	x.insert(make_pair(1, 2));
-	/*x[1] = 5;
-	x[1]++;*/
-	cout << x[1];
+	//map<int, int> x;
+	//x.insert(make_pair(1, 2));
+	///*x[1] = 5;
+	//x[1]++;*/
+	//cout << x[1];
 
 	{system("pause"); return  0; }
 }
