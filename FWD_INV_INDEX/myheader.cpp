@@ -1,6 +1,5 @@
 #include "myheader.h"
 
-
 //*********************************************************************				WORD
 bool operator<(const Word & a, const Word & b) {
 	return a.keyword < b.keyword;
@@ -23,30 +22,34 @@ Word::Word(string _keyword, int _heading, bool _uppercase, bool _italics)
 }
 
 //*********************************************************************				ForwardIndex
-//ForwardIndex::fwdNode_itr ForwardIndex::findWebpageInList(WebPage_t * _webpage) {
-//	return binary_search(Forward_Vec.begin(), Forward_Vec.end(), _webpage, ForwardIndex::compare);
-//}
 
 void ForwardIndex::push(WebPage_t * _webpage, Word * _word, WordLoc_t * _wordLoc) {
 	ForwardIndex::fwdNode_itr _webpage_itr;// = Forward_Vec.begin();
 
-	//set <WordLoc_t> temp = { *_wordLoc };
-	//_webpage_itr->keywords.insert(make_pair(_word, set < WordLoc_t > { *_wordLoc }));
-	//(Forward_Vec.end() - 1);
-
-	if (_webpage_itr != Forward_Vec.end()) { //IF WEBPAGE EXISTS.
+	//*********************************************IF WEBPAGE EXISTS.
+	if (_webpage_itr != Forward_Vec.end()) { 
+		
+		//ForwardIndex::fwdNode_insert_itr _webpage_insert_itr(Forward_Vec, _webpage_itr);
 		auto _word_itr = _webpage_itr->keywords.find(_word);
+		//*****************************************IF WEBPAGE & WORD EXISTS.
 		if (_word_itr != _webpage_itr->keywords.end()) {
-
+			_word_itr->second.insert(*_wordLoc);
 		}
-		else { //IF WEBPAGE, BUT NO KEYWORD.
+
+		//*****************************************IF WEBPAGE, BUT NO KEYWORD.
+		else {
+			_webpage_itr->keywords.insert(make_pair(_word, set < WordLoc_t > { *_wordLoc }));
+			{//set <WordLoc_t> temp = { *_wordLoc };
+			//_webpage_insert_itr->keywords.insert(make_pair(_word, set < WordLoc_t > { *_wordLoc }));
 			//pair <Word *, set <WordLoc_t>> temp();
-			set <WordLoc_t> temp = { *_wordLoc };
+			//set <WordLoc_t> temp = { *_wordLoc };
 			//_webpage_itr->keywords.insert(make_pair(_word, temp));
+			}
 		}
 	}
 
-	else { //IF WEbpage DOESNT EXISTS.
+	//*********************************************IF WEbpage DOESNT EXISTS.
+	else { 
 		Forward_Vec.insert(ForwardIndex_Node(_webpage, _word, _wordLoc));
 	}
 }
@@ -55,6 +58,10 @@ void ForwardIndex::push(WebPage_t * _webpage, Word * _word, WordLoc_t * _wordLoc
 //	for (ForwardIndex_Node::keywords_itr itr = ((Forward_Vec.end() - 1))->keywords.front.s;; ++itr) {
 //
 //	}
+//}
+
+//ForwardIndex::fwdNode_itr ForwardIndex::findWebpageInList(WebPage_t * _webpage) {
+//	return binary_search(Forward_Vec.begin(), Forward_Vec.end(), _webpage, ForwardIndex::compare);
 //}
 //*********************************************************************				InvertedIndex
 InvertedIndex_Node::InvertedIndex_Node(Word * word, WebPage_t * webpage) {

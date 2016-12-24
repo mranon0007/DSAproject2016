@@ -8,6 +8,7 @@ using namespace std;
 #include <map>
 #include <forward_list>
 #include <set>
+#include <iterator>
 
 //Aliases
 typedef string WebPage_t, FilePath_t;
@@ -16,7 +17,7 @@ typedef int WordLoc_t, WordCount_t;
 
 bool isArticle(string); //Check if keyword is an article 
 bool compareStrings(const string &, const string &); //Compare 2 strings, Case INSENSITIVE
-bool compareStrings(const string & a, const string & b);
+//bool compareStrings(const string & a, const string & b);
 bool compareStrings(const char * a, const char * b);
 string getToken(istream & ss); //Get token from istream
 
@@ -47,7 +48,7 @@ struct ForwardIndex_Node {
 	ForwardIndex_Node(WebPage_t *, Word *, WordLoc_t *);
 	ForwardIndex_Node();
 	WebPage_t WebPage;
-	keywords_t keywords;
+	mutable keywords_t keywords;
 
 	//forward_list <pair <Word *, vector<WordLoc_t>>> keywords;
 	//ForwardIndex(vector <FilePath_t *>);
@@ -59,6 +60,7 @@ class ForwardIndex {
 public:
 	typedef set <struct ForwardIndex_Node> fwdNode_t;
 	typedef fwdNode_t::iterator fwdNode_itr;
+	typedef insert_iterator<fwdNode_t> fwdNode_insert_itr;
 
 	fwdNode_t Forward_Vec;
 	void push(WebPage_t *, Word*, WordLoc_t *);
@@ -79,8 +81,6 @@ public:
 	//		return s < p.first;
 	//	}
 	//};
-
-
 };
 
 //*********************************************************************				InvertedIndex
