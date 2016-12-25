@@ -5,10 +5,11 @@ using namespace std;
 #include <algorithm>
 #include <list>
 #include <forward_list>
-#include "myheader.h"
 #include <Windows.h>
 #include <fstream>
-//#include "WebPages\A.txt"
+#include "myfuncs.h"
+#include "ForwardIndex.h"
+#include "InvertedIndex.h"
 
 class myobj {
 public:

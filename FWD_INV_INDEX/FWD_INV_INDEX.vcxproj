@@ -78,11 +78,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="myheader.cpp" />
+    <ClCompile Include="ForwardIndex.cpp" />
+    <ClCompile Include="myfuncs.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="InvertedIndex.cpp" />
+    <ClCompile Include="Word.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="myheader.h" />
+    <ClInclude Include="ForwardIndex.h" />
+    <ClInclude Include="InvertedIndex.h" />
+    <ClInclude Include="myfuncs.h" />
+    <ClInclude Include="Word.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
