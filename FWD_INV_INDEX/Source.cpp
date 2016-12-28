@@ -21,6 +21,9 @@ int main() {
 	/*vector <ForwardIndex_Node> FwdIndex;
 	vector <InvertedIndex_Node> InvIndex;*/
 
+	ForwardIndex FwdIndex;
+	InvertedIndex InvIndex;
+
 	ifstream webpage;
 	WebPage_t webpageURL("WebPages\\A.txt");
 	webpage.open(webpageURL);
@@ -31,6 +34,8 @@ int main() {
 		Word * word = new Word(token);
 		//cout << token << " ";
 
+		InvIndex.push(*word, webpageURL);
+		FwdIndex.push(webpageURL, *word, i);
 		//Insert into invindex. STILL WORKING ON THIS ONE
 		{
 			/*	InvertedIndex_Node tempNode;
@@ -48,7 +53,7 @@ int main() {
 		//}
 
 		
-	}
+	} //EnD FOR
 
 	{
 		//Word * x;
@@ -88,6 +93,7 @@ int main() {
 	//auto itr = x.begin();
 	//advance(itr, 2);
 	//itr->l.insert(n);
+	
 
 	//map<int, int> x;
 	//x.insert(make_pair(1, 1));

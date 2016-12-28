@@ -1,34 +1,41 @@
-//#include "InvertedIndex.h"
-//
-////*********************************************************************				InvertedIndex
-//InvertedIndex_Node::InvertedIndex_Node(Word * word, WebPage_t * webpage) {
-//	this->keyword = word;
-//	this->Webpages.push_front(make_pair(webpage, 1));
-//}
-//
-////************************************				InvertedIndex List
-//InvertedIndex::invNode_itr InvertedIndex::WordPos(Word* _word) {
-//	for (InvertedIndex::invNode_itr itr = Inverted_Vec.begin(); itr != Inverted_Vec.end(); ++itr) {
-//		//if ((*itr)->keyword->keyword == (_word->keyword));
-//		if (compareStrings((itr)->keyword->keyword, (_word->keyword))) {
-//			return itr;
-//		}
-//	}
-//	return Inverted_Vec.end();
-//}
-//
-//void InvertedIndex::push(Word * keyword, WebPage_t * webpage) {
-//	InvertedIndex::invNode_itr wordpos = WordPos(keyword);
-//	if (wordpos != Inverted_Vec.end()) { //If IN LIST
-//		InvertedIndex_Node::webpages_itr itr;
-//		for (itr = wordpos->Webpages.begin(); itr != wordpos->Webpages.end(); ++itr) {
-//			if (webpage == itr->first) {
-//				itr->second = itr->second + 1;
-//			}
-//		}
-//	}
-//	else {
-//		/*InvertedIndex_Node temp(keyword, webpage); Inverted_Vec.push_back(temp);*/
-//		Inverted_Vec.push_back(InvertedIndex_Node(keyword, webpage));
-//	}
-//}
+#include "InvertedIndex.h"
+
+bool operator<(const struct InvertedIndex_Node & l, const struct InvertedIndex_Node & r) {
+	return l.keyword < r.keyword;
+}
+
+//*********************************************************************				InvertedIndex
+InvertedIndex_Node::InvertedIndex_Node(Word & word, WebPage_t & webpage) {
+	this->keyword = &word.keyword;
+	this->Webpages.insert(&webpage);
+}
+
+//************************************				InvertedIndex List
+InvertedIndex::invNode_itr InvertedIndex::WordPos(Word & _word) {
+	InvertedIndex::invNode_itr itr;
+	for (itr = Inverted_Vec.begin(); itr != Inverted_Vec.end(); ++itr) {
+		if (compareStrings(*itr->keyword, _word.keyword)) {
+			return itr;
+		}
+	}
+	return Inverted_Vec.end();
+}
+
+void InvertedIndex::push(Word & word, WebPage_t & webpage) {
+	InvertedIndex::invNode_itr wordpos = WordPos(word);
+	//If IN LIST
+	if (wordpos != Inverted_Vec.end()) { 
+		wordpos->Webpages.insert(&webpage);
+		/*InvertedIndex_Node::webpages_itr itr;
+		for (itr = wordpos->Webpages.begin(); itr != wordpos->Webpages.end(); ++itr) {
+			if (webpage == itr->first) {
+				itr->second = itr->second + 1;
+			}
+		}*/
+	}
+	//If NOT IN LIST
+	else {
+		/*InvertedIndex_Node temp(keyword, webpage); Inverted_Vec.push_back(temp);*/
+		Inverted_Vec.insert(InvertedIndex_Node(word, webpage));
+	}
+}
