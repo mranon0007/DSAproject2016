@@ -24,6 +24,8 @@ public:
 	Word(string);
 	Word(string, int, bool, bool);
 
+	int getweight(void) const;
+
 	friend bool operator==(const Word &, const Word &);
 	friend bool operator<(const Word &, const Word &);
 };

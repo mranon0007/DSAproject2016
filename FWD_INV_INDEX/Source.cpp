@@ -18,8 +18,8 @@ public:
 
 int main() {
 
-	vector <ForwardIndex_Node> FwdIndex;
-	vector <InvertedIndex_Node> InvIndex;
+	/*vector <ForwardIndex_Node> FwdIndex;
+	vector <InvertedIndex_Node> InvIndex;*/
 
 	ifstream webpage;
 	WebPage_t webpageURL("WebPages\\A.txt");
@@ -88,6 +88,12 @@ int main() {
 	//auto itr = x.begin();
 	//advance(itr, 2);
 	//itr->l.insert(n);
+
+	//map<int, int> x;
+	//x.insert(make_pair(1, 1));
+	//x.insert(make_pair(2, 2));
+	//x.insert(make_pair(3, 3));
+	//cout << x[30]++ << endl;
 
 
 

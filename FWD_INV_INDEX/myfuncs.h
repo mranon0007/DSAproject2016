@@ -6,7 +6,7 @@ using namespace std;
 
 //Aliases
 
-typedef string WebPage_t, FilePath_t;
+typedef string WebPage_t, Keyword_t, FilePath_t;
 typedef int WordLoc_t, WordCount_t;
 //typedef string FilePath_t;
 
