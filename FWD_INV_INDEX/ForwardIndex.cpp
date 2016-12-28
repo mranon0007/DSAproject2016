@@ -14,8 +14,6 @@ void ForwardIndex::push(WebPage_t & _webpage, Word & _word, WordLoc_t & _wordLoc
 
 	//*********************************************IF WEBPAGE EXISTS.
 	if (_webpage_itr != Forward_Vec.end()) {
-
-		//ForwardIndex::fwdNode_insert_itr _webpage_insert_itr(Forward_Vec, _webpage_itr);
 		auto _word_itr = _webpage_itr->keywords.find(&_word.keyword);
 		//*****************************************IF WEBPAGE & WORD EXISTS.
 		if (_word_itr != _webpage_itr->keywords.end()) {
@@ -25,12 +23,6 @@ void ForwardIndex::push(WebPage_t & _webpage, Word & _word, WordLoc_t & _wordLoc
 		//*****************************************IF WEBPAGE, BUT NO KEYWORD.
 		else {
 			_webpage_itr->keywords.insert(make_pair(&_word.keyword, set < WordLoc_t > { _wordLoc }));
-			{//set <WordLoc_t> temp = { *_wordLoc };
-				//_webpage_insert_itr->keywords.insert(make_pair(_word, set < WordLoc_t > { *_wordLoc }));
-				//pair <Word *, set <WordLoc_t>> temp();
-				//set <WordLoc_t> temp = { *_wordLoc };
-				//_webpage_itr->keywords.insert(make_pair(_word, temp));
-			}
 		}
 	}
 
@@ -48,8 +40,3 @@ ForwardIndex::fwdNode_itr ForwardIndex::findWebpageInList(WebPage_t & _webpage) 
 	return itr;
 }
 
-//ForwardIndex_Node::keywords_itr ForwardIndex::wordLocInList(Word *) {
-//	for (ForwardIndex_Node::keywords_itr itr = ((Forward_Vec.end() - 1))->keywords.front.s;; ++itr) {
-//
-//	}
-//}
