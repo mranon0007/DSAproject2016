@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FWD_INV_INDEX", "FWD_INV_INDEX\FWD_INV_INDEX.vcxproj", "{D4D11C45-2ED9-4F18-93E4-909AC2811C7E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MySql Testing", "MySql Testing\MySql Testing.vcxproj", "{7978E9FE-238B-4342-AFA3-19B569263DF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{D4D11C45-2ED9-4F18-93E4-909AC2811C7E}.Debug|Win32.Build.0 = Debug|Win32
 		{D4D11C45-2ED9-4F18-93E4-909AC2811C7E}.Release|Win32.ActiveCfg = Release|Win32
 		{D4D11C45-2ED9-4F18-93E4-909AC2811C7E}.Release|Win32.Build.0 = Release|Win32
+		{7978E9FE-238B-4342-AFA3-19B569263DF1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7978E9FE-238B-4342-AFA3-19B569263DF1}.Debug|Win32.Build.0 = Debug|Win32
+		{7978E9FE-238B-4342-AFA3-19B569263DF1}.Release|Win32.ActiveCfg = Release|Win32
+		{7978E9FE-238B-4342-AFA3-19B569263DF1}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,24 +11,24 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D4D11C45-2ED9-4F18-93E4-909AC2811C7E}</ProjectGuid>
+    <ProjectGuid>{7978E9FE-238B-4342-AFA3-19B569263DF1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>FWD_INV_INDEX</RootNamespace>
-    <ProjectName>Forward Inverted Index</ProjectName>
+    <RootNamespace>MySqlTesting</RootNamespace>
+    <ProjectName>MySql Testing Unit</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -79,18 +79,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ForwardIndex.cpp" />
-    <ClCompile Include="myfuncs.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="InvertedIndex.cpp" />
-    <ClCompile Include="Word.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="dirent.h" />
-    <ClInclude Include="ForwardIndex.h" />
-    <ClInclude Include="InvertedIndex.h" />
-    <ClInclude Include="myfuncs.h" />
-    <ClInclude Include="Word.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

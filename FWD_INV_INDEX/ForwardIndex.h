@@ -16,7 +16,12 @@ using namespace std;
 /*A node (1 row) which contains the webpage, and the list of words
 and their positions in the document*/
 struct ForwardIndex_Node {
-	typedef map <Keyword_t *, set <WordLoc_t>> keywords_t;
+	//map key comparison function
+	struct map_cmp {
+		bool operator() (const Keyword_t * l, const Keyword_t * r) { return *l < *r; }
+	};
+
+	typedef map <Keyword_t *, set <WordLoc_t>, map_cmp> keywords_t;
 	typedef keywords_t::iterator keywords_itr;
 
 	ForwardIndex_Node(WebPage_t &, Word &, WordLoc_t &);
