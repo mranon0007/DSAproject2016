@@ -16,7 +16,7 @@ int main() {
 	ForwardIndex FwdIndex;
 	InvertedIndex InvIndex;
 
-	ifstream webpage;
+//	ifstream webpage;
 	WebPage_t webpageURL("WebPages\\A.txt");
 	webpage.open(webpageURL);
 
@@ -26,35 +26,17 @@ int main() {
 		Word * word = new Word(token);
 		//cout << token << " ";
 
-		InvIndex.push(*word, webpageURL);
-		FwdIndex.push(webpageURL, *word, i);
-		//Insert into invindex. STILL WORKING ON THIS ONE
-		{
-			/*	InvertedIndex_Node tempNode;
-			tempNode.keyword = new Word(token);
-			tempNode.Webpages.push_front(make_pair(&webpageURL, 0));*/
+		if (token.length() > 2) {
+			if (token != "the" && token != "The" && token != "and" && token != "his" && token != "her" && token != "was") {
+				InvIndex.push(*word, webpageURL);
+				FwdIndex.push(webpageURL, *word, i);
+			}
 		}
-
-
-		////Insert into fwdindex
-		//{
-		//	ForwardIndex_Node tempNode;
-		//	tempNode.WebPage = webpageURL;
-		//	tempNode.keywords.push_front(make_pair(word, i));
-		//	FwdIndex.push_back(tempNode);
-		//}
-
-		
+		else continue;
 	} //EnD FOR
 
-	{
-		//Word * x;
-		//set <WordLoc_t> temp = { 7 };
-		////_webpage_itr->keywords.insert(make_pair(_word, temp));
-		//struct ForwardIndex_Node xx;
-		//xx.keywords.insert(make_pair(x, {7}));
-	}
-
+	InvIndex.displayInverted();
+	//FwdIndex.displayForward();
 
 	{system("pause"); return  0; }
 }
