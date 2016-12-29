@@ -26,8 +26,6 @@ struct ForwardIndex_Node {
 
 	friend bool operator<(const struct ForwardIndex_Node &, const struct ForwardIndex_Node &);
 
-	//forward_list <pair <Word *, vector<WordLoc_t>>> keywords;
-	//ForwardIndex(vector <FilePath_t *>);
 };
 
 /*A Container (LIST) to contain all the nodes of
@@ -42,6 +40,4 @@ public:
 	void push(WebPage_t &, Word &, WordLoc_t &);
 	fwdNode_itr findWebpageInList(WebPage_t &);
 
-	//bool compare(WebPage_t * y, struct ForwardIndex_Node * x) { return x.WebPage < *y; };
-	//ForwardIndex_Node::keywords_itr wordLocInList(Word *);
 };

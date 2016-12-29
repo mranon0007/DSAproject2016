@@ -3,104 +3,32 @@ using namespace std;
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <list>
-#include <forward_list>
-#include <Windows.h>
 #include <fstream>
 #include "myfuncs.h"
 #include "ForwardIndex.h"
 #include "InvertedIndex.h"
 
-class myobj {
-public:
-	list<int> l;
-};
-
 int main() {
 
-	/*vector <ForwardIndex_Node> FwdIndex;
-	vector <InvertedIndex_Node> InvIndex;*/
-
+	vector<string> webpages;
+	ifstream webpage;
+	
 	ForwardIndex FwdIndex;
 	InvertedIndex InvIndex;
-
-	ifstream webpage;
-	WebPage_t webpageURL("WebPages\\A.txt");
-	webpage.open(webpageURL);
-
-	for (int i = 0; !webpage.eof(); ++i) {
-		string token;
-		token = getToken(webpage);
-		Word * word = new Word(token);
-		//cout << token << " ";
-
-		InvIndex.push(*word, webpageURL);
-		FwdIndex.push(webpageURL, *word, i);
-		//Insert into invindex. STILL WORKING ON THIS ONE
-		{
-			/*	InvertedIndex_Node tempNode;
-			tempNode.keyword = new Word(token);
-			tempNode.Webpages.push_front(make_pair(&webpageURL, 0));*/
-		}
-
-
-		////Insert into fwdindex
-		//{
-		//	ForwardIndex_Node tempNode;
-		//	tempNode.WebPage = webpageURL;
-		//	tempNode.keywords.push_front(make_pair(word, i));
-		//	FwdIndex.push_back(tempNode);
-		//}
-
-		
-	} //EnD FOR
-
-	{
-		//Word * x;
-		//set <WordLoc_t> temp = { 7 };
-		////_webpage_itr->keywords.insert(make_pair(_word, temp));
-		//struct ForwardIndex_Node xx;
-		//xx.keywords.insert(make_pair(x, {7}));
-	}
-
-
-	/*string a = "";
-	string b = "";
-	if (compareStrings("test", "TEst")) cout << "TEST";*/
-
-	//map<int, int> x;
-	//x.insert(make_pair(1, 2));
-	///*x[1] = 5;
-	//x[1]++;*/
-	//cout << x[1];
-
-	//set<int> x = { 1, 3, 7, -2 };
-	//x.insert(4);
-	//x.insert(1);
-	//for (auto itr = x.begin(); itr != x.end(); ++itr) {
-	//	cout << *itr;
-	//}
-
-	//int n = 10;
-	////list<int> lis;
-	////lis.insert(lis.begin(), n);
-
-	////myobj XX;
-	////XX.l.insert(XX.l.begin(), n);
-
-	//set<myobj> x;
-	////x.front().l.insert(x.front().l.begin(), n);
-	//auto itr = x.begin();
-	//advance(itr, 2);
-	//itr->l.insert(n);
 	
-
-	//map<int, int> x;
-	//x.insert(make_pair(1, 1));
-	//x.insert(make_pair(2, 2));
-	//x.insert(make_pair(3, 3));
-	//cout << x[30]++ << endl;
-
+	GetReqDirs("WebPages/", webpages);
+	for (auto webpages_itr = webpages.begin(); webpages_itr != webpages.end(); ++webpages_itr) {
+		webpage.open(*webpages_itr);
+		for (int i = 0; !webpage.eof(); ++i) {
+			string token;
+			token = getToken(webpage);
+			Word & word = *new Word(token);
+			
+			InvIndex.push(word, *webpages_itr);
+			FwdIndex.push(*webpages_itr, word, i);
+		} //EnD FOR
+		webpage.close();
+	}
 
 
 	{system("pause"); return  0; }

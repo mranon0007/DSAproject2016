@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <cstring>
+#include "dirent.h"
 using namespace std;
 
 //Aliases
@@ -15,3 +17,5 @@ bool compareStrings(const string &, const string &); //Compare 2 strings, Case I
 //bool compareStrings(const string & a, const string & b);
 bool compareStrings(const char * a, const char * b);
 string getToken(istream & ss); //Get token from istream
+
+void GetReqDirs(const std::string&, std::vector<string>&, const bool showHiddenDirs = false);
