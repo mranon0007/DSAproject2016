@@ -16,7 +16,12 @@ using namespace std;
 /*A node to store a word, and a list of docs it
 appears in with number of appearences.*/
 struct InvertedIndex_Node {
-	typedef set<WebPage_t *> webpages_t;
+	//map key comparison function
+	struct set_cmp {
+		bool operator() (const WebPage_t * l, const WebPage_t * r) { return *l < *r; }
+	};
+
+	typedef set<WebPage_t *, set_cmp> webpages_t;
 	typedef webpages_t::iterator webpages_itr;
 	//typedef forward_list < pair <WebPage_t *, WordCount_t> >::iterator webpages_itr;
 

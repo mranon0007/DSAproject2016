@@ -1,7 +1,7 @@
 #include "InvertedIndex.h"
 
 bool operator<(const struct InvertedIndex_Node & l, const struct InvertedIndex_Node & r) {
-	return l.keyword < r.keyword;
+	return *l.keyword < *r.keyword;
 }
 
 //*********************************************************************				InvertedIndex
