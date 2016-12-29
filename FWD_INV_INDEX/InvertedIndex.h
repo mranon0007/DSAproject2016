@@ -36,4 +36,5 @@ public:
 	invNode_t Inverted_Vec;
 	void push(Word &, WebPage_t &);
 	invNode_itr WordPos(Word &);
+	void displayInverted();
 };

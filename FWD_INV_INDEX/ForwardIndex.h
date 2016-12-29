@@ -36,4 +36,5 @@ public:
 	fwdNode_t Forward_Vec;
 	void push(WebPage_t &, Word &, WordLoc_t &);
 	fwdNode_itr findWebpageInList(WebPage_t &);
+	void displayForward();
 };

@@ -34,3 +34,13 @@ void InvertedIndex::push(Word & word, WebPage_t & webpage) {
 		Inverted_Vec.insert(InvertedIndex_Node(word, webpage));
 	}
 }
+
+void InvertedIndex::displayInverted() {
+	invNode_itr itr = Inverted_Vec.begin();
+	for (itr = Inverted_Vec.begin(); itr != Inverted_Vec.end(); itr++) {
+		cout << *itr->keyword << "  :  " ;
+		for(auto iter = itr->Webpages.cbegin(); iter != itr->Webpages.cend(); iter++){
+			cout << **iter << " , "<< endl;
+		}
+	}
+}

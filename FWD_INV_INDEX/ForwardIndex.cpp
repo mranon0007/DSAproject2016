@@ -40,3 +40,14 @@ ForwardIndex::fwdNode_itr ForwardIndex::findWebpageInList(WebPage_t & _webpage) 
 	return itr;
 }
 
+void ForwardIndex::displayForward() {
+	fwdNode_itr itr = Forward_Vec.begin();
+	for (itr = Forward_Vec.begin(); itr != Forward_Vec.end(); ++itr) {
+		cout << "WebPage : " << itr->WebPage <<endl;
+		cout << "KeyWords occuring in this webpage are:" << endl;
+		for (auto iter = itr->keywords.cbegin(); iter != itr->keywords.cend(); iter++) {
+			cout << *iter->first << " , ";
+		}
+	}
+}
+

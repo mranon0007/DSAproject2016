@@ -34,26 +34,17 @@ int main() {
 		Word * word = new Word(token);
 		//cout << token << " ";
 
-		InvIndex.push(*word, webpageURL);
-		FwdIndex.push(webpageURL, *word, i);
-		//Insert into invindex. STILL WORKING ON THIS ONE
-		{
-			/*	InvertedIndex_Node tempNode;
-			tempNode.keyword = new Word(token);
-			tempNode.Webpages.push_front(make_pair(&webpageURL, 0));*/
+		if (token.length() > 2) {
+			if (token != "the" && token != "The" && token != "and" && token != "was" && token != "his" && token != "her" && token != "they") {
+				InvIndex.push(*word, webpageURL);
+			}
 		}
+		//FwdIndex.push(webpageURL, *word, i);
 
-
-		////Insert into fwdindex
-		//{
-		//	ForwardIndex_Node tempNode;
-		//	tempNode.WebPage = webpageURL;
-		//	tempNode.keywords.push_front(make_pair(word, i));
-		//	FwdIndex.push_back(tempNode);
-		//}
-
-		
 	} //EnD FOR
+
+	//FwdIndex.displayForward();		//forward index display function
+	InvIndex.displayInverted();
 
 	{
 		//Word * x;
