@@ -29,6 +29,8 @@ struct ForwardIndex_Node {
 	mutable keywords_t keywords;
 
 	friend bool operator<(const struct ForwardIndex_Node &, const struct ForwardIndex_Node &);
+
+
 };
 
 /*A Container (LIST) to contain all the nodes of
@@ -37,6 +39,7 @@ class ForwardIndex {
 public:
 	typedef set <struct ForwardIndex_Node> fwdNode_t;
 	typedef fwdNode_t::iterator fwdNode_itr;
+	//typedef insert_iterator<fwdNode_t> fwdNode_insert_itr;
 
 	fwdNode_t Forward_Vec;
 	void push(WebPage_t &, Word &, WordLoc_t &);

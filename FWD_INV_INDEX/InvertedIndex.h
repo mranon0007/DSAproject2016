@@ -23,6 +23,7 @@ struct InvertedIndex_Node {
 
 	typedef set<WebPage_t *, set_cmp> webpages_t;
 	typedef webpages_t::iterator webpages_itr;
+	//typedef forward_list < pair <WebPage_t *, WordCount_t> >::iterator webpages_itr;
 
 	InvertedIndex_Node(Word &, WebPage_t &);
 	Keyword_t * keyword;
