@@ -19,6 +19,7 @@ int main() {
 	GetReqDirs("WebPages/", webpages);
 	for (auto webpages_itr = webpages.begin(); webpages_itr != webpages.end(); ++webpages_itr) {
 		webpage.open(*webpages_itr);
+		cout << *webpages_itr; break;
 		for (int i = 0; !webpage.eof(); ++i) {
 			string token;
 			token = getToken(webpage);
