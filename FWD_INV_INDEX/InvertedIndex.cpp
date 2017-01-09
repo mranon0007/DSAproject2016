@@ -5,12 +5,14 @@ bool operator<(const struct InvertedIndex_Node & l, const struct InvertedIndex_N
 }
 
 //*********************************************************************				InvertedIndex
+
 InvertedIndex_Node::InvertedIndex_Node(Word & word, WebPage_t & webpage) {
 	this->keyword = &word.keyword;
 	this->Webpages.insert(&webpage);
 }
 
-//************************************				InvertedIndex List
+//******************************************************************				InvertedIndex List
+
 InvertedIndex::invNode_itr InvertedIndex::WordPos(Word & _word) {
 	InvertedIndex::invNode_itr itr;
 	for (itr = Inverted_Vec.begin(); itr != Inverted_Vec.end(); ++itr) {
@@ -30,5 +32,15 @@ void InvertedIndex::push(Word & word, WebPage_t & webpage) {
 	//If NOT IN LIST
 	else {
 		Inverted_Vec.insert(InvertedIndex_Node(word, webpage));
+	}
+}
+
+void InvertedIndex::displayInverted() {
+	invNode_itr itr = Inverted_Vec.begin();
+	for (itr = Inverted_Vec.begin(); itr != Inverted_Vec.end(); itr++) {
+		cout <<"\n\n\n" <<*itr->keyword << "  :  " ;
+		for(auto iter = itr->Webpages.cbegin(); iter != itr->Webpages.cend(); iter++){
+			cout << **iter << " , ";
+		}
 	}
 }

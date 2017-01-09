@@ -30,7 +30,7 @@ struct ForwardIndex_Node {
 
 	friend bool operator<(const struct ForwardIndex_Node &, const struct ForwardIndex_Node &);
 
-	
+
 };
 
 /*A Container (LIST) to contain all the nodes of
@@ -44,5 +44,5 @@ public:
 	fwdNode_t Forward_Vec;
 	void push(WebPage_t &, Word &, WordLoc_t &);
 	fwdNode_itr findWebpageInList(WebPage_t &);
-
+	void displayForward();
 };

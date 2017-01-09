@@ -93,6 +93,9 @@ _TeamCity*
 # DotCover is a Code Coverage Tool
 *.dotCover
 
+# .DB ignore
+*.opendb
+
 # NCrunch
 _NCrunch_*
 .*crunch*.local.xml

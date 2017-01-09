@@ -38,7 +38,7 @@ bool compareStrings(const char * a, const char * b) {
 }
 
 //*********************************************************************				Get Token
-string getToken(istream & ss){
+string getToken(istream & ss) {
 
 	string token = "";
 	char x = ss.get();
@@ -59,7 +59,7 @@ string getToken(istream & ss){
 	return token;
 }
 
-void GetReqDirs(const std::string& path, std::vector<string>& files, const bool showHiddenDirs){
+void GetReqDirs(const std::string& path, std::vector<string>& files, const bool showHiddenDirs) {
 
 	/*
 	source: http://stackoverflow.com/questions/13129340/recursive-function-for-listing-all-files-in-sub-directories
@@ -74,14 +74,14 @@ void GetReqDirs(const std::string& path, std::vector<string>& files, const bool 
 	DIR *dpdf;
 	struct dirent *epdf;
 	dpdf = opendir(path.c_str());
-	if (dpdf != NULL){
-		while ((epdf = readdir(dpdf)) != NULL){
+	if (dpdf != NULL) {
+		while ((epdf = readdir(dpdf)) != NULL) {
 			bool flag = showHiddenDirs ? (epdf->d_type == DT_DIR && string(epdf->d_name) != ".." && string(epdf->d_name) != ".") : (epdf->d_type == DT_DIR && strstr(epdf->d_name, "..") == NULL && strstr(epdf->d_name, ".") == NULL);
 			if (flag)
 			{
 				GetReqDirs(path + epdf->d_name + "/", files, showHiddenDirs);
 			}
-			if (epdf->d_type == DT_REG){
+			if (epdf->d_type == DT_REG) {
 				files.push_back(path + epdf->d_name);
 			}
 		}
