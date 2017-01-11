@@ -3,18 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Forward Inverted Index", "FWD_INV_INDEX\FWD_INV_INDEX.vcxproj", "{D4D11C45-2ED9-4F18-93E4-909AC2811C7E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "win", "C:\Users\Aasharib\Desktop\html\myhtml-2.0.0\devel\win\win\win.vcxproj", "{3F0346BF-A418-48B2-9186-7C0A51E31EFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
 		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D4D11C45-2ED9-4F18-93E4-909AC2811C7E}.Debug|Win32.ActiveCfg = Debug|Win32
-		{D4D11C45-2ED9-4F18-93E4-909AC2811C7E}.Debug|Win32.Build.0 = Debug|Win32
-		{D4D11C45-2ED9-4F18-93E4-909AC2811C7E}.Release|Win32.ActiveCfg = Release|Win32
-		{D4D11C45-2ED9-4F18-93E4-909AC2811C7E}.Release|Win32.Build.0 = Release|Win32
+		{3F0346BF-A418-48B2-9186-7C0A51E31EFB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3F0346BF-A418-48B2-9186-7C0A51E31EFB}.Debug|Win32.Build.0 = Debug|Win32
+		{3F0346BF-A418-48B2-9186-7C0A51E31EFB}.Debug|x64.ActiveCfg = Debug|x64
+		{3F0346BF-A418-48B2-9186-7C0A51E31EFB}.Debug|x64.Build.0 = Debug|x64
+		{3F0346BF-A418-48B2-9186-7C0A51E31EFB}.Release|Win32.ActiveCfg = Release|Win32
+		{3F0346BF-A418-48B2-9186-7C0A51E31EFB}.Release|Win32.Build.0 = Release|Win32
+		{3F0346BF-A418-48B2-9186-7C0A51E31EFB}.Release|x64.ActiveCfg = Release|x64
+		{3F0346BF-A418-48B2-9186-7C0A51E31EFB}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
